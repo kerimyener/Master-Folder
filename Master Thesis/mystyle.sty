@@ -1,0 +1,53 @@
+\ProvidesPackage{mystyle}
+\usepackage[utf8]{inputenc}
+\usepackage{siunitx}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath} %for math equations
+\pagenumbering{gobble} %disable number of page 
+\usepackage{amssymb}
+\usepackage[inner=3cm,outer=3cm,bottom=5cm]{geometry}
+\usepackage{setspace}
+\usepackage{url}
+\renewcommand{\baselinestretch}{1.25}
+\usepackage{fancyhdr}
+\usepackage{float}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+\graphicspath{ {pictures/} }% add figures
+\usepackage{color}
+\let\origref\ref
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[colorlinks=true,
+            linkcolor=blue,
+            urlcolor=blue,
+            citecolor=blue]{hyperref}
+\usepackage{enumitem}
+\setlist{nolistsep}
+\usepackage{wrapfig}
+%------------------caption setup-----------------%
+\usepackage{subcaption}
+\captionsetup[subfigure]{labelfont=bf,textfont=normal,singlelinecheck=off,justification=raggedright}
+\captionsetup[figure]{labelfont=bf,textfont=normal,singlelinecheck=off,justification=centering}
+\captionsetup[table]{labelfont=bf,textfont=normalfont,singlelinecheck=off,justification=centering}
+%---------------------------------------------------------------%
+
+\hbadness=99999 
+\usepackage{tikz}
+
+\usepackage[T1]{fontenc}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{blindtext}
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\usepackage[
+backend=biber,
+sorting=none,
+]{biblatex}
+
+\addbibresource{master.bib}
+

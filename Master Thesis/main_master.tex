@@ -1,0 +1,62 @@
+\documentclass[hidelinks,a4paper,12pt,twoside]{report}
+\usepackage{mystyle}
+
+%----------------------------------------------------------------%
+
+\begin{document}
+\input{./tex/title.tex}
+\maketitle
+
+\pagenumbering{roman}
+
+\input{./tex/decleration.tex}
+\newpage
+\input{./tex/Acknowledgement.tex}
+\newpage
+\input{./tex/Abstract.tex}
+\newpage
+%------------------design Header and Footer----------------------
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptertitlename \hspace{1pt} \thechapter. #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{}
+\fancyhead[LE,RO]{\textbf{\thepage}}
+\fancyhead[LO]{\textbf{\rightmark}}
+\fancyhead[RE]{\textbf{\leftmark}}
+\fancypagestyle{plain}{%
+\fancyhead{} % get rid of headers
+\fancyfoot[C]{\textbf{\thepage}}
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+%----------------------------------------------------------------%
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+%-------------------------------CHAPTER1-------------------------%
+\input{./tex/chapter1.tex}
+
+%----------------------------------------------------------------%
+%-------------------------------CHAPTER2-------------------------%
+\input{./tex/chapter2.tex}
+\newpage
+%----------------------------------------------------------------%
+%-------------------------------CHAPTER3-------------------------%
+\input{./tex/chapter3.tex}
+\newpage
+%----------------------------------------------------------------%
+%-------------------------------CHAPTER4-------------------------%
+\input{./tex/chapter4.tex}
+\newpage
+%----------------------------------------------------------------%
+%-------------------------------CHAPTER5-------------------------%
+\input{./tex/chapter5.tex}
+\newpage
+
+%----------------------------------------------------------------%
+%-------------------------------CHAPTER6-------------------------%
+\input{./tex/chapter6.tex}
+
+\newpage 
+\listoffigures
+\printbibliography
+\end{document}
