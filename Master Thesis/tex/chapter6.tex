@@ -1,4 +1,28 @@
-\chapter{Conclusion}
-\section{Discussion}\label{sec:discussion}
+\chapter{Conclusion and Future Work}\label{chp:6}
+In this thesis, we intensively discussed the localization problem of self-driving cars. We introduced several approaches, as well as their applications and improvements, in order to overcome this problem. 
+\par At the beginning of this thesis, we introduced the concept of self-driving cars, and subsequently, we focused on related works conducted in the field of robotics thus far to consider how to tackle localization problems. Afterwards, we presented four different localization methods, along with their results.
+\par From the results of this research, several conclusions were drawn, which were categorized in the following topics.
+\\
+\\
+\textbf{Wheel Odometry:}
+\begin{itemize}
+    \item We first discussed wheel odometry—a common, basic method that is also considered as a sub-type of the dead reckoning method—for estimating a vehicle's position based on its linear and angular velocity. We criticized this method in term of its advantages and disengaged. Finally, we concluded that wheel odometry is a practical solution for local but not global localization due to its unbounded error.    
+\end{itemize}
+\textbf{Extended Kalman Filter:}
+\begin{itemize}
+    \item Since the MIA car was equipped with different sensors, we formalized the configuration of the EKF with wheel odometry, IMU, and GPS data in order to improve the estimation of the pose. As a result, we found that even though an EKF gives more reliable results than those of GPS or wheel odometry, it is not precise enough to fulfill the requirements of self-driving cars for localization.
+\end{itemize}
+\textbf{Scan Matching Methods:}
+\begin{itemize}
+    \item We used the NDT and ICP scan matching methods to match 3D point cloud maps (created by NDT) with the output of a LIDAR sensor. In principle, both algorithms try to find the transformation matrix between two scans, and the only difference is how they interpret the obtained data. Both algorithms have their own advantages and disadvantages (e.g., NDT is faster than ICP on a relative intensity map whereas ICP is more precise than NDT on a relatively sparse map).
+\end{itemize}
 \newpage
-\section{Future Work}
+\noindent{\textbf{Combination of EKF with NDT/ICP:}}
+\begin{itemize}
+    \item Since the sample rate of both scan matching algorithms is around 10 Hz, it not only causes discontinuity in the estimated position but also makes the vehicle control difficult. Therefore, we combined (fused) EKF with NDT/ICP to get a smoother and less noisy estimation of the vehicle's position. However, we found that tuning a Kalman filter parameter, such as process noise covariance, is the most the difficult task since it can vary depending on road condition.   
+\end{itemize}
+\par In conclusion, we carried out several tests successfully, both in theoretical and practical terms. According to our assessment of test results, NDT and the combination of EKF and NDT are the most optimal methods. Our results proved the NDT algorithm, and in the same manner, the combination of NDT with EKF was found to be an optimal method for testing localization in a real system. However, the second latter method did not work as expected; one reason could be miscalibrated sensors. This could also be easily improved by changing the sensor configurations even though this was not truly tested in a real system. Nevertheless, the NDT algorithm was approved when the vehicle was driven autonomously by conducting the test on the Bassum go-kart race track  \ref{sub:Bassum}.
+\par Although the presented algorithms look promising, we aware that there is a sizable gap in our study that needs to be filled. Since the algorithms were tested in relatively similar areas and weather conditions, they require additional experiments to validate their robustness and reliability. Another considerable gap in this study is that none of these approaches was able to solve the problem of kidnapping unless a GPS was available. Therefore, in the future, more probabilistic methods must be tested, and additional tests should be conducted under different weather conditions to further investigate the localization performance. 
+\par Additionally, the time performance of the map creation methods has to be mentioned here. At the moment, this method is offline, and it can take up to 20 hours to build an area with a 500-m radius. Instead of using this method, it would be interesting to use some SLAM algorithms to build a map online, which would make the process faster.
+\par Another improvement would be to make the EKF adaptive. In our experiment, the EKF parameters had to be changed manually depending on some conditions (e.g., road conditions). Therefore, one improvement would be to look for a way to make the EKF more robust. Apart from all of this, it would also be interesting to incorporate more machine learning and internet of things (IoT) techniques in order to develop more agile, robust, and precise localization methods.
+\par Our work might count as a small contribution to localization, but there is still much work that needs to be done in order to reach the ultimate goal: to make a “fully autonomous” car a reality.

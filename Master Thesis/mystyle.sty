@@ -1,16 +1,23 @@
 \ProvidesPackage{mystyle}
 \usepackage[utf8]{inputenc}
 \usepackage{siunitx}
+\usepackage{acronym}
+\usepackage[titletoc]{appendix}
+\usepackage[acronym,nonumberlist]{glossaries}
 \usepackage[ruled,vlined]{algorithm2e}
 \usepackage{graphicx}
 \usepackage{float}
+%\usepackage{tocbibind}
 \usepackage{amsmath} %for math equations
-\pagenumbering{gobble} %disable number of page 
+\pagenumbering{gobble}
+\usepackage{emptypage}
 \usepackage{amssymb}
-\usepackage[inner=3cm,outer=3cm,bottom=5cm]{geometry}
+\usepackage[headheight=15pt,
+inner=3cm,outer=3cm,bottom=3cm,top=3cm]{geometry}
+\usepackage{afterpage}
 \usepackage{setspace}
 \usepackage{url}
-\renewcommand{\baselinestretch}{1.25}
+\renewcommand{\baselinestretch}{1}
 \usepackage{fancyhdr}
 \usepackage{float}
 \setcounter{tocdepth}{4}
@@ -21,18 +28,18 @@
 \usepackage{color}
 \let\origref\ref
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
-\usepackage[colorlinks=true,
+\usepackage[colorlinks=false,
             linkcolor=blue,
             urlcolor=blue,
-            citecolor=blue]{hyperref}
+            citecolor=black]{hyperref}
 \usepackage{enumitem}
 \setlist{nolistsep}
 \usepackage{wrapfig}
 %------------------caption setup-----------------%
-\usepackage{subcaption}
-\captionsetup[subfigure]{labelfont=bf,textfont=normal,singlelinecheck=off,justification=raggedright}
-\captionsetup[figure]{labelfont=bf,textfont=normal,singlelinecheck=off,justification=centering}
-\captionsetup[table]{labelfont=bf,textfont=normalfont,singlelinecheck=off,justification=centering}
+\usepackage{subfig}
+\captionsetup[subfigure]{labelfont=bf,textfont=small,singlelinecheck=off,justification=raggedright}
+\captionsetup[figure]{labelfont=bf,textfont=small,singlelinecheck=off,justification=centering}
+\captionsetup[table]{labelfont=bf,textfont=small,singlelinecheck=off,justification=centering}
 %---------------------------------------------------------------%
 
 \hbadness=99999 
@@ -42,12 +49,12 @@
 \usepackage{titlesec}
 \usepackage{xcolor}
 \usepackage{blindtext}
-
-\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\raggedbottom
 \usepackage[
 backend=biber,
 sorting=none,
+style=ieee,
 ]{biblatex}
+\bibliography{master}
 
-\addbibresource{master.bib}
 

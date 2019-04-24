@@ -1,20 +1,41 @@
-\documentclass[hidelinks,a4paper,12pt,twoside]{report}
+\documentclass[hidelinks,a4paper,12pt,twoside,openright]{report}
 \usepackage{mystyle}
 
 %----------------------------------------------------------------%
+\makenoidxglossaries
+\newacronym{slam}{SLAM}{Simultaneous Localization and Mapping}
+\newacronym{imu}{IMU}{Inertial Measurement Unit}
+\newacronym{gps}{GPS}{Global Positioning System}
+\newacronym{ekf}{EKF}{Extended Kalman Filter}
+\newacronym{icp}{ICP}{Iterative Closest Point}
+\newacronym{ndt}{NDT}{Normal Distribution Transform}
+\newacronym{lidar}{LIDAR}{Light Detection and Ranging}
+\newacronym{radar}{RADAR}{Radio Detection and Ranging}
+\newacronym{mems}{MEMS}{Micro-Electro-Mechanical Systems}
+\newacronym{dof}{DoF}{Degree of Freedom}
+\newacronym{pdf}{PDF}{Probability Density Function}
+\newacronym{ros}{ROS}{Robot Operating System}
+\newacronym{pcl}{PCL}{Point Cloud Library}
+\newacronym{utm}{UTM}{Universal Transverse Mercator}
+\newacronym{kitti}{KITTI}{Karlsruhe Institute of Technology and Toyota Technological Institute}
 
 \begin{document}
 \input{./tex/title.tex}
 \maketitle
 
 \pagenumbering{roman}
-
 \input{./tex/decleration.tex}
-\newpage
-\input{./tex/Acknowledgement.tex}
-\newpage
 \input{./tex/Abstract.tex}
-\newpage
+\input{./tex/Acknowledgement.tex}
+\tableofcontents
+\input{./tex/Acronym.tex}
+\listoffigures
+\listoftables
+
+
+
+
+
 %------------------design Header and Footer----------------------
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{\chaptertitlename \hspace{1pt} \thechapter. #1}{}}
@@ -27,36 +48,35 @@
 \fancyhead{} % get rid of headers
 \fancyfoot[C]{\textbf{\thepage}}
 \renewcommand{\headrulewidth}{0pt} % and the line
+
 }
 %----------------------------------------------------------------%
-\tableofcontents
-\newpage
-\pagenumbering{arabic}
-%-------------------------------CHAPTER1-------------------------%
-\input{./tex/chapter1.tex}
 
+
+%-------------------------------CHAPTER1-------------------------%
+
+
+\input{./tex/chapter1.tex}
 %----------------------------------------------------------------%
 %-------------------------------CHAPTER2-------------------------%
 \input{./tex/chapter2.tex}
-\newpage
 %----------------------------------------------------------------%
 %-------------------------------CHAPTER3-------------------------%
 \input{./tex/chapter3.tex}
-\newpage
 %----------------------------------------------------------------%
 %-------------------------------CHAPTER4-------------------------%
 \input{./tex/chapter4.tex}
-\newpage
 %----------------------------------------------------------------%
 %-------------------------------CHAPTER5-------------------------%
 \input{./tex/chapter5.tex}
-\newpage
-
 %----------------------------------------------------------------%
 %-------------------------------CHAPTER6-------------------------%
 \input{./tex/chapter6.tex}
 
-\newpage 
-\listoffigures
-\printbibliography
+
+\appendix
+\input{./tex/AppendixA.tex}
+\printbibliography[ heading=bibintoc, title={Bibliography}]
+
+
 \end{document}
